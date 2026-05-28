@@ -20,7 +20,10 @@
             {
             if (shape.Quadrant == "TopLeft")
                 {
-                    <div class="shape circle">
+                    <div class="shape circle"
+                         draggable="true"  
+                         @ondragstart="() => StartDrag(shape.Id)">   @* store id of shape being dragged. When you start dragging e.g. shape with shape.ID being 3, the app stores draggedShapeId = 3 *@
+                         @* noting is moved yet *@
                         @shape.Id
                     </div>
                 }
@@ -37,7 +40,9 @@
             {
                 if (shape.Quadrant == "TopRight")
                 {
-                    <div class="shape hexagon">
+                    <div class="shape hexagon"
+                        draggable="true"
+                        @ondragstart="() => StartDrag(shape.Id)">
                         @shape.Id
                     </div>
                 }
@@ -55,7 +60,10 @@
             {
                 if (shape.Quadrant == "BottomLeft")
                 {
-                    <div class="shape square">
+                    <div class="shape square"
+                         draggable="true"
+                         @ondragstart="() => StartDrag(shape.Id)">
+                        
                         @shape.Id
                     </div>
                 }
@@ -72,7 +80,9 @@
             {
                 if (shape.Quadrant == "BottomRight")
                     {
-                            <div class="shape triangle">
+                            <div class="shape triangle"
+                                        draggable="true"
+                                 @ondragstart="() => StartDrag(shape.Id)"> 
                                 @shape.Id
                             </div>
                     }
@@ -97,5 +107,12 @@
         new ShapeItem{Id = 5, Quadrant = "TopLeft" },
 
 };
+
+    private int draggedShapeId = 0;
+
+    private void StartDrag(int shapeId)
+    {
+        draggedShapeId = shapeId;
+    }
 }
 

@@ -82,11 +82,12 @@ h1:focus {
 .shape {
     width: 60px;
     height: 60px;
-    backgound-color: royalblue;
+    background-color: royalblue;
     color: white;
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor:grab; /*cursor now added to shape*/
 }
 
 .circle {
