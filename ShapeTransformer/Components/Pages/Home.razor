@@ -3,27 +3,99 @@
 
 <PageTitle>Shape Transformer</PageTitle>
 
+<h1>Shape Transformer</h1>
+
 <p>Five circles start in the top-left quadrant. When a shape is dragged into a quadrant, it transforms into the shape associated with that quadrant. </p>
 
-<div class="board">
+
+@* Each quadrant loops through all shapes and only displays the ones that belong there
+ *@
+ <div class="board">
     <div class="quadrant">
         <h2>Top Left</h2>
         <p>Circle</p>
+
+        <div class="shape-area"> @* for top left quadrant, only display the five initial circles *@
+            @foreach(var shape in Shapes)
+            {
+            if (shape.Quadrant == "TopLeft")
+                {
+                    <div class="shape circle">
+                        @shape.Id
+                    </div>
+                }
+                }
+        </div>
     </div>
 
     <div class="quadrant">
         <h2>Top Right</h2>
         <p>Hexagon</p>
+
+        <div class="shape-area">
+            @foreach (var shape in Shapes)
+            {
+                if (shape.Quadrant == "TopRight")
+                {
+                    <div class="shape hexagon">
+                        @shape.Id
+                    </div>
+                }
+            }
+        </div>
+
     </div>
 
     <div class="quadrant">
         <h2>Bottom Left</h2>
         <p>Square</p>
+
+        <div class="shape-area">
+            @foreach (var shape in Shapes)
+            {
+                if (shape.Quadrant == "BottomLeft")
+                {
+                    <div class="shape square">
+                        @shape.Id
+                    </div>
+                }
+            }
+        </div>
     </div>
 
     <div class="quadrant"
         <h2> Bottom Right</h2>
         <p>Triangle</p>
+
+        <div class="shape-area">
+            @foreach (var shape in Shapes)
+            {
+                if (shape.Quadrant == "BottomRight")
+                    {
+                            <div class="shape triangle">
+                                @shape.Id
+                            </div>
+                    }
+                }
+        </div>
 </div>
 </div>
+
+@code {
+    private class ShapeItem
+    {
+        public int Id{ get; set; }
+        public string Quadrant { get; set; } = "";
+    }
+
+    private List<ShapeItem> Shapes = new() /* 5 shape objects of type ShapeItem. Id 1-5 in top left representing starting circles */
+    {
+        new ShapeItem{Id = 1, Quadrant = "TopLeft" },
+        new ShapeItem{Id = 2, Quadrant = "TopLeft" },
+        new ShapeItem{Id = 3, Quadrant = "TopLeft" },
+        new ShapeItem{Id = 4, Quadrant = "TopLeft" },
+        new ShapeItem{Id = 5, Quadrant = "TopLeft" },
+
+};
+}
 

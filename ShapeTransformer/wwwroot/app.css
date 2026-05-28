@@ -71,3 +71,36 @@ h1:focus {
     border: 2px solid #cccccc;
     padding: 16px;
 }
+
+.shape-area {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+
+}
+
+.shape {
+    width: 60px;
+    height: 60px;
+    backgound-color: royalblue;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.circle {
+    border-radius: 50%;
+}
+
+.square {
+    border-radius: 0;
+}
+
+.hexagon {
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
+
+.triangle {
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
