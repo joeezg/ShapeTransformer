@@ -34,6 +34,7 @@ Open the solution in Visual Studio and run the project.
 I kept the implementation intentionally small. I used CSS for the visual shape transformations and simple in-memory state instead of backend APIs, or external libraries. 
 
 I kept the layout simple because the requirement was for typical laptop usability rather than full mobile optimisation.
+
 I did not add a separate mobile layout or advanced responsive behaviour.
 
 With more time, I would add unit/component tests, improve keyboard accessibility, add clearer drag/drop visual feedback, and refine responsive behaviour.
