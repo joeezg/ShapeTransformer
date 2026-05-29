@@ -12,8 +12,9 @@
  *@
  <div class="board">
     <div class="quadrant"
-        @ondrop='() => DropShape("TopLeft")' @* when a shape is dropped, the list is looped. the matching id is found and then its qudrant string is updated *@
+        @ondrop='() => DropShape("TopLeft")' 
         @ondragover:preventDefault="true">
+        @* when a shape is dropped, the list is looped. the matching id is found and then its qudrant string is updated *@
 
         <h2>Top Left</h2>
         <p>Circle</p>
