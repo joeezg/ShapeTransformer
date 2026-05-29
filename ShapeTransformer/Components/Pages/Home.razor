@@ -11,10 +11,14 @@
 @* Each quadrant loops through all shapes and only displays the ones that belong there
  *@
  <div class="board">
-    <div class="quadrant">
+    <div class="quadrant"
+        @ondrop='() => DropShape("TopLeft")' @* when a shape is dropped, the list is looped. the matching id is found and then its qudrant string is updated *@
+        @ondragover:preventDefault="true">
+
         <h2>Top Left</h2>
         <p>Circle</p>
 
+        
         <div class="shape-area"> @* for top left quadrant, only display the five initial circles *@
             @foreach(var shape in Shapes)
             {
@@ -31,7 +35,9 @@
         </div>
     </div>
 
-    <div class="quadrant">
+        <div class="quadrant"
+             @ondrop='() => DropShape("TopRight")'
+             @ondragover:preventDefault="true">
         <h2>Top Right</h2>
         <p>Hexagon</p>
 
@@ -51,7 +57,9 @@
 
     </div>
 
-    <div class="quadrant">
+        <div class="quadrant"
+             @ondrop='() => DropShape("BottomLeft")'
+             @ondragover:preventDefault="true">
         <h2>Bottom Left</h2>
         <p>Square</p>
 
@@ -71,7 +79,9 @@
         </div>
     </div>
 
-    <div class="quadrant"
+        <div class="quadrant"
+     @ondrop='() => DropShape("BottomRight")'
+     @ondragover:preventDefault="true">
         <h2> Bottom Right</h2>
         <p>Triangle</p>
 
@@ -113,6 +123,18 @@
     private void StartDrag(int shapeId)
     {
         draggedShapeId = shapeId;
+    }
+
+    private void DropShape(string newQuadrant) /* if a shape is dropped into the top right quadrant, its quadrant string becomes "topright" */
+    {
+        foreach (var shape in Shapes)
+        {
+            if(shape.Id == draggedShapeId)
+            {
+                shape.Quadrant = newQuadrant;
+            }
+        }
+        draggedShapeId = 0;
     }
 }
 
